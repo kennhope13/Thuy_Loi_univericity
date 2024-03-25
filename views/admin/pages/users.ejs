@@ -1,0 +1,121 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Quản lý người dùng</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">users</li>
+                <div class="nav-item dropdown mega-dropdown"> <a
+                        class="nav-link  waves-effect waves-dark" href="" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus-circle"></i>&nbsp;Thêm người
+                        dùng</a>
+                    <div class="dropdown-menu animated bounceInDown">
+                        <ul class="mega-dropdown-menu row">
+                            <li class="col-lg-5 col-xlg-2 m-b-30">
+                                <h4 class="m-b-20">BỘ MÔN CÔNG NGHỆ THÔNG TIN</h4>
+                                <!-- CAROUSEL -->
+                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <div class="container"> <img class="d-block img-fluid"
+                                                    src="/images/Baner-web-01-1536x512.png" alt="First slide"></div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="container"><img class="d-block img-fluid"
+                                                    src="/images/facebook-1536x590.png" alt="Second slide"></div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="container"><img class="d-block img-fluid" src="/images/le.png"
+                                                    alt="Third slide"></div>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                        data-bs-slide="prev"> <span class="carousel-control-prev-icon"
+                                            aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                        data-bs-slide="next"> <span class="carousel-control-next-icon"
+                                            aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                                </div>
+                                <!-- End CAROUSEL -->
+                            </li>
+                            <li class="col-lg-7 m-b-30 ">
+                                <h4 class="m-b-20">THÊM NGƯỜI DÙNG</h4>
+                                <!-- Accordian -->
+                                <div class="accordion" id="accordionExample">
+                                    <div class="card m-b-0">
+                                        <div class="form-group">
+                                            <input style="width: 50%" type="text" class="form-control" id="txt_name"
+                                                placeholder="Enter Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="myCheckbox"></label>
+                                            <input type="checkbox" id="myCheckbox">
+                                        </div>
+                                        <div class="form-group">
+                                            <input style="width: 50%;" style="width: 50%" type="text"
+                                                class="form-control" placeholder="Enter password" id="txt_password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input style="width: 50%" type="email" class="form-control"
+                                                placeholder="Enter email" id="txt_email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input style="width: 50%;" type="file" class="form-control"
+                                                id="txtFileImage">
+                                            <img id="imgProduct" style="width: 60px;" class="avatar" src="./upload/"
+                                                alt="">
+                                            <input style="width: 50%;" type="hidden" id="hid_avt" value="./upload/default.jpg">
+                                            <input style="display: block;" type="button" id="btnUploadImage"
+                                                value="Done!!">
+                                        </div>
+                                        <div class="form-group">
+                                            <input style="width: 50%;" type="text" class="form-control"
+                                                placeholder="Enter phone number" id="txt_phoneNum">
+                                        </div>
+
+                                    </div>
+                                    <button type="button" class="btn btn-info text-white" id="btn_add">Thêm</button>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            </ol>
+            <!-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15 text-white create_new"><i class="fa fa-plus-circle"></i> Create New</button> -->
+
+        </div>
+
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-hover no-wrap">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th>TÊN</th>
+                <th>TRẠNG THÁI</th>
+                <th>EMAIL</th>
+                <th>ẢNH ĐẠI DIỆN</th>
+                <th>SỐ ĐIỆN THOẠI</th>
+                <th>THAO TÁC</th>
+            </tr>
+        </thead>
+        <tbody id="listuser">
+            <!-- <tr>
+                <td class="text-center">1</td>
+                <td class="txt-oflo">Elite admin</td>
+                <td><span class="badge bg-success rounded-pill">sale</span> </td>
+                <td class="txt-oflo"><span><img class="avatar" src="./upload/default2.png" alt=""></span></td>
+                <td><span class="text-success">$24</span></td>
+                <td><span class="text-success">$24</span></td>
+                <td><a href="javascript:void(0)" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td> 
+            </tr> -->
+        </tbody>
+    </table>
+</div>

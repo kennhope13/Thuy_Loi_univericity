@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <!-- page css -->
+    <link href="../assets/node_modules/register-steps/steps.css" rel="stylesheet">
+    <link href="dist/css/pages/register3.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="skin-default card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Elite admin</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <section id="wrapper" class="step-register">
+        <div class="register-box">
+            <div class="">
+                <a href="javascript:void(0)" class="text-center m-b-40"><img src="../assets/images/logo-icon.png" alt="Home" /><br/><img src="../assets/images/logo-text.png" alt="Home" /></a>
+                <!-- multistep form -->
+                <form id="msform">
+                    <!-- progressbar -->
+                    <ul id="eliteregister">
+                        <li class="active">Thiết lập tài khoản</li>
+                        <li>Thông tin cá nhân</li>
+                    </ul>
+                    <!-- fieldsets -->
+                    <fieldset>
+                        <h2 class="fs-title">tạo tài khoản của bạn</h2>
+                        <h3 class="fs-subtitle">Bước 1</h3>
+                        <input id="txtemail" type="text" name="email" placeholder="Email" />
+                        <input id="txtpassword" type="password" name="pass" placeholder="Mật khẩu" />
+                        <input type="button" name="next" class="next action-button" value="Tiếp theo" />
+                    </fieldset>
+                    <fieldset>
+                        <h2 class="fs-title">Thông tin cá nhân</h2>
+                        <h3 class="fs-subtitle">Chúng tôi sẽ bảo mật thông tin</h3>
+                        <input id="txtname" type="text" name="name" placeholder="Tên người dùng" />
+                        <input id="txtmobile" type="text" name="phone" placeholder="Số điện thoại" />
+                        <textarea id="txtaddress" name="address" placeholder="Địa chỉ "></textarea>
+                        <input type="button" name="previous" class="previous action-button" value="Quay lại" />
+                        <input id="btnSubmit-Signup" type="submit" name="submit" class="submit action-button" value="Đăng ký" />
+                    </fieldset>
+                </form>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../assets/node_modules/register-steps/jquery.easing.min.js"></script>
+    <script src="../assets/node_modules/register-steps/register-init.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $(".preloader").fadeOut();
+    });
+    $(function() {
+        $('[data-bs-toggle="tooltip"]').tooltip()
+    });
+    // ============================================================== 
+    // Login and Recover Password 
+    // ============================================================== 
+    $('#to-recover').on("click", function() {
+        $("#loginform").slideUp();
+        $("#recoverform").fadeIn();
+    });
+    </script>
+    <script src="./adminitrator/index.js"></script>
+    <!-- <script>
+        $(document).ready(function(){
+           $("#btnSubmit-Signup").click(function(){
+            var Email=$("#txtemail").val();
+            var Password=$("#txtpassword").val();
+            var Name=$("#txtname").val();
+            var address=$("#txtaddress").val();
+            var mobile=$("#txtmobile").val();
+           var data = {Email:Email,Password:Password,Name:Name,address:address,mobile:mobile};
+            // Gửi yêu cầu POST với dữ liệu FormData
+            jQuery.ajax({
+            url: './Register',
+            data: data,
+            cache: false,
+            // contentType: false,
+            // processData: false,
+            method: 'POST',
+            type: 'POST',
+            success: function (data) {
+                if(data.result==1){
+                    window.location = "./Quangperfume";
+                    alert("tao tai khoan thanh cong hay dang nhap");
+                }else{
+                    alert("tao tai khoan that bai")
+                }
+            }
+            });
+           });
+        });
+    </script> -->
+</body>
+
+</html>

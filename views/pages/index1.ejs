@@ -1,0 +1,351 @@
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index1</title>
+  <link rel="stylesheet" href="./adminitrator/layout.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://fontawesome.com/v4/icon/graduation-cap"></script>
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container-fluid headder">
+    <!-- header -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 logo">
+          <img src="./images/website-tlus-thuy-loi-campus-3.png" alt="">
+        </div>
+        <div class="col-lg-5" >
+           
+            <ul style="margin-left: 200px;">
+              <% if(!data_user.userId){ %>
+                <li><a href="/login"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<b>Đăng nhập </b></a></li>
+              <% } else { %>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic show" href="" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <img style="height: 50px; width: 50px;" src="/<%= data_user.avatar %>" class=""> 
+                      <span class="hidden-md-down"><%= data_user.name %> &nbsp;<i class="fa fa-angle-down"></i></span> 
+                  </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> Thông tin cá nhân</a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item mr-3" id="login-lay"><i class="fa fa-power-off"></i> Đăng xuất</a>
+                    </div>
+                  </li>
+              <% } %>
+              
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="slogan">
+    <hr style="width: 5%; position: relative; top: 60px; margin-left: 43%; border: 2px solid #000; border-radius: 2px; ">
+    <i class="fa fa-university" aria-hidden="true"></i>
+    <hr style="width: 5%; position: relative; bottom: 22.5px;  left: 370px; border: 2px solid #000; border-radius: 2px;">
+    <hr>
+  </div>
+
+  <div class="container-fluid ">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <nav class="navbar navbar-expand-sm bg-light " >
+
+            <div class="container banner-nav">
+              <!-- Links -->
+              <ul class="navbar-nav flex">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="home1" href=""  data-bs-toggle="dropdown"><b>Giới
+                      Thiệu </b></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/bmcntt">Ngành Công Nghệ Thông Tin</a></li>
+                    <li><a class="dropdown-item" href="#">Ngành Trí Tuệ Nhân Tạo và Khoa Học Dữ Liệu ( AI & OS)</a></li>
+                  </ul>
+                </li>
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                <li class="nav-item dropdown">
+                  <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown"><b>Tuyển sinh</b></a>
+                </li>
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <li class="nav-item dropdown">
+                  <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown"><b>Chương trình đào tạo</b></a>
+                </li>
+                <i class="fa fa-id-card" aria-hidden="true"></i>
+                <li class="nav-item dropdown">
+                  <a class="nav-link " href="./lienhe"><b>Liên hệ</b></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    </div>
+    <hr style="width: 50%; margin-left: 25%;">
+    <!-- Slideshow container -->
+    <!-- <div class="container-fluid slishowz">
+      <div class="container"> -->
+        <div class="slideshow-container-fluid">
+
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
+            <img src="./images/Cong-thong-tin-viec-lam-1000x280-1.png" style="width:100%">
+
+          </div>
+
+          <div class="mySlides fade">
+            <img src="./images/facebook-1536x590.png" style="width:100%">
+          </div>
+
+          <div class="mySlides fade">
+            <img src="./images/Baner-web-01-1536x512.png" style="width:100%">
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+        <br>
+        
+      <!-- </div>
+    </div> -->
+    <!-- <hr> -->
+    <!-- <div class="container">
+      <div class="row">
+        <div class="slogan-banner">
+          <h3><b>Bộ môn Công Nghệ Thông Tin</b></h3>
+          <div>
+            <hr style="width: 15%; margin-left: 42%;">
+            <i class="fa fa-desktop" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="container">
+      <div class=" slogan-banner">
+        <div>
+          <hr style="width: 5%; position: relative; top: 19px; margin-left: 42%; border: 2px solid #000; border-radius: 2px; ">
+          <i class="fa fa-desktop" style="margin-top: 20px; margin-left: 90px;" aria-hidden="true"></i>
+          <hr style="width: 5%; position: relative; bottom: 76px;  left: 680px; border: 2px solid #000; border-radius: 2px;">
+        </div>
+        <h3><b>Bộ môn Công Nghệ Thông Tin</b></h3>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 my-2 mx-3">
+          <h5 id="chuyenmuc" class="rounded-top"><b>Chuyên mục </b></h5>
+          <ul id="mautab">
+            <Li>Bộ Môn</Li>
+            <li><a href="/bmcntt"><i style="margin-right: 3px;" class="fa fa-hand-o-right" aria-hidden="true"></i>Công nghệ thông tin (IT)</a></li>
+            <li><a href=""><i style="margin-right: 3px;" class="fa fa-hand-o-right" aria-hidden="true"></i>Trí tuệ nhân tạo và Khai phá dữ liệu (AI & OS)</a></li>
+          </ul>
+  
+          <h5 id="chuyenmuc" class="rounded-top"><b>Bài viết mới </b></h5>
+          <div class="row">
+            <div class="col-lg-5">
+              <img src="./images/z4866341734575_f118ae834f4201667aa0de4449169b37.jpg" alt="computer-lab" class="card-img rounded" style="width: 100%; height: 60px; margin-bottom: 10px;">
+            </div>
+            <div class="col-lg-7">
+              <p style="font-size: 90%;">Thông báo tuyển sinh đào tạo trình độ thạc sĩ Khóa 32 năm 2024</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5">
+              <img src="./images/DSC07287.jfif" alt="computer-lab" class="card-img rounded" style="width: 100%; height: 60px; margin-bottom: 10px;">
+            </div>
+            <div class="col-lg-7">
+              <p style="font-size: 90%;">Dạy cho sinh viên kiến thức nền để phát triển sản phẩm...</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5">
+              <img src="./images/bd1.jpg" alt="computer-lab" class="card-img rounded" style="width: 100%; height: 60px; margin-bottom: 10px;">
+            </div>
+            <div class="col-lg-7">
+              <p style="font-size: 90%;">Hội đồng tuyển sinh Phân hiệu Trường Đại học Thủy lợi...</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5">
+              <img src="./images/Khoa CNTT 20-11-273.jfif" alt="computer-lab" class="card-img rounded" style="width: 100%; height: 60px; margin-bottom: 10px;">
+            </div>
+            <div class="col-lg-7">
+              <p style="font-size: 90%;">(TLU) – Ngày 11/12/2023, Trường Đại học Thủy lợi... </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5">
+              <img src="./images/tt3].jpg" alt="computer-lab" class="card-img rounded" style="width: 100%; height: 60px; margin-bottom: 10px;">
+            </div>
+            <div class="col-lg-7">
+              <p style="font-size: 90%;">Hội đồng tuyển sinh Phân hiệu Trường Đại học Thủy lợi...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 my-2 mx-3" id="article_index">
+           <!-- inser -->
+        </div>
+      </div>
+      <hr style="width: 50%; margin-left: 25%;">
+      <div class=" slogan-banner">
+        <h3 style="text-align: center;"><b >Tin tức</b></h3>
+        <div>
+          <hr style="width: 5%; position: relative; top: 19px; margin-left: 42.5%; border: 2px solid #000; border-radius: 2px; ">
+          <i class="fa fa-newspaper-o" style="margin-top: 20px;margin-left: 90px;"  aria-hidden="true"></i>
+          <hr style="width: 5%; position: relative; bottom: 76px;  left: 680px; border: 2px solid #000; border-radius: 2px;">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <hr>
+          <h4 style="color: darkgreen;">Hội thảo</h4>
+          <p style=" opacity: 0.7;">20/11/2023</p>
+          <img src="./images/Khoa CNTT 20-11-273.jfif" style="width: 100%;  height: 170px" />
+          <h5 class="description">Hội thảo khoa học công nghệ và đổi mới sáng tạo lĩnh vực thủy lợi và phòng chống thiên tai </h5>
+        </div>
+        <div class="col-lg-4">
+          <hr>
+          <h4 style="color: darkgreen;">Sự kiện</h4>
+          <p style=" opacity: 0.7;">20/11/2023</p>
+          <img src="./images/z4866341734575_f118ae834f4201667aa0de4449169b37.jpg" style="width: 100%; height: 170px; object-fit: cover;" />
+          <h5 class="description" >Chào mừng ngày nhà giáo Việt Nam 20/11/2023 </h5>
+          <a style="cursor: pointer;" href="#">xem thêm...</a>
+        </div>
+        <!-- <div class="col-lg-3">
+          <hr>
+          <h4 style="color: darkgreen;">Sự kiện</h4>
+          <p style=" opacity: 0.7;">20/11/2023</p>
+          <img src="./images/DSC07287.jfif" style="width: 100%; height: 170px; object-fit: cover;"/>
+          <h5>Lễ ký kết thỏa thuận hợp tác giữa Trường Đại học Xây dựng Hà Nội và Trường Đại học Thủy lợi </h5>
+        </div> -->
+        <div class="col-lg-4">
+          <hr>
+          <h4 style="color: darkgreen;">Thông báo</h4>
+          <p style=" opacity: 0.7;">20/11/2023</p>
+          <img src="./images/facebook-1536x590.png" style="width: 100%; height: 170px; object-fit: cover;"/>
+          <h5 class="description">Thông báo về việc đăng ký học trước một số học phần thuộc chương trình Thạc sĩ năm 2023 </h5>
+        </div>
+    </div>
+    <hr style="width: 50%; margin-left: 25%;">
+    <div class="slogan-banner">
+      <h3 style="text-align: center;"><b>Đào tạo </b></h3>
+      <div>
+        <hr style="width: 5%; position: relative; top: 19px; margin-left: 42%; border: 2px solid #000; border-radius: 2px; ">
+        <i class="fa fa-sitemap" style="margin-top: 20px;margin-left: 140px;"  aria-hidden="true"></i>
+        <hr style="width: 5%; position: relative; bottom: 76px;  left:53%; border: 2px solid #000; border-radius: 2px;">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 banner-bot">
+            <img src="./images/le.png" alt="">
+            <div class="khung">
+              <p><b>Khởi nghiệp bắt đầu từ kiến thức lý thuyết và thực tiễn thương trường Đại học Thủy Lợi </b></p>
+              <p>Dạy cho sinh viên kiến thức nền để phát triển sản phẩm và thương mại hóa sản phẩm là việc làm không dễ
+                dàng. Vậy mà cô trò ngành Hóa của trường Đại học Thủy lợi đã làm được điều mong đợi ấy.<a href="">Xem
+                  thêm...</a></p>
+            </div>
+          </div>
+          <div class="col-lg-3 banner-bot">
+            <img src="./images/tt3].jpg" alt="">
+            <div class="khung">
+              <p><b> Đội tuyển Đại học Thuỷ lợi giành Giải Nhì cuộc thi 'Công nghệ trí tuệ Sinh viên' năm 2023</b></p>
+              <p>Vòng Chung kết cuộc thi 'Công nghệ trí tuệ Sinh viên' năm 2023 được tổ chức tại Trường Đại học Thủy lợi
+                vào 8/12. Cuộc thi do Trung ương Đoàn TNCS Hồ Chí Minh, Trung tâm Hỗ trợ và Phát triển Sinh viên Việt Nam
+                cùng với sự hỗ trợ đặc biệt từ Công ty TNHH Canon Việt Nam tổ chức. <a href="">Xem thêm...</a></p>
+            </div>
+          </div>
+          <div class="col-lg-3 banner-bot">
+            <img src="./images/bd1.jpg" alt="">
+            <div class="khung">
+              <p><b>Trường Đại học Thủy lợi hợp tác với Ai20X và Wenet đào tạo nguồn nhân lực bán dẫn </b></p>
+              <p>Ngày 18/12/2023, Trường Đại học Thủy lợi đã có buổi làm việc với Tập đoàn Ai20X và Công ty Wenet (Hoa Kỳ)
+                về “Mô hình đào tạo nguồn nhân lực chíp bán dẫn - Semi conductor và giải pháp thúc đẩy hệ sinh thái công
+                nghệ đổi mới sáng tạo từ ứng dụng công nghệ điện toán biên WENET”. <a href="">Xem thêm...</a></p>
+  
+            </div>
+          </div>
+          <div class="col-lg-3 banner-bot">
+            <img src="./images/c696814b7f1cd7428e0d.jpg" alt="">
+            <div class="khung">
+              <p><b> Đội tuyển Olympic Tin học Trường Đại học Thủy lợi đạt nhiều giải cao tại Kỳ thi Toàn quốc</b></p>
+              <p>Vừa qua, tại Thừa Thiên Huế diễn ra Lễ Tổng kết và trao giải thưởng Kỳ thi Olympic Tin học sinh viên Việt
+                Nam lần thứ 32, Procon và Kỳ thi lập trình sinh viên quốc tế ICPC ASIA Hue City năm 2023, đội tuyển sinh
+                viên Trường Đại học Thủy lợi đã đạt 01 giải Nhì, 5 giải Ba và 1 giải Khuyến khích. <a href="">Xem
+                  thêm...</a></p>
+  
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+  <!-- footer -->
+  <div class="container-fluid footer">
+    <div class="container">
+      <div class="row ">
+
+        <div class="col-lg-7">
+          <h4><i class="fa fa-copyright" aria-hidden="true"></i>PHÂN HIỆU TRƯỜNG ĐẠI HỌC THỦY LỢI</h4>
+        </div>
+        <div class="col-lg-5 footer-top">
+          <a href="https://www.facebook.com/phanhieuthuyloi"><i style="color: #3F51B5;" class="fa fa-facebook-square"
+              aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/channel/UCmxnK89RTcty0KS2qJzEA7A"><i style="color: #3F51B5;"
+              class="fa fa-youtube-play" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid footer-bot">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <b>Cơ sở tại TP.HCM</b>
+          <hr>
+          <p>Số 2 Trường Sa, P.17, Q. Bình Thạnh, Tp. Hồ Chí Minh </p>
+          <p>Điện thoại: (84).28.38400532</p>
+          <p>Fax: (84).28.38400532</p>
+          <p> Email: phanhieu@tlu.edu.vn</p>
+        </div>
+        
+          <div class="col-lg-3 mt-2 ml-5">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.8404381897417!2d106.70479227769347!3d10.792373547429957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175299a2a7aeb89%3A0xfe75f3431d8fd812!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUaOG7p3kgTOG7o2kgUGjDom4gaGnhu4d1IE1p4buBbiBOYW0!5e0!3m2!1svi!2s!4v1679451490700!5m2!1svi!2s" width="100%" height="180" style="border: 0px; max-width: 100%; max-height: 500px; margin-left: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid footer-botom">
+    <div class="container">
+      <div class="row">
+        <p><i class="fa fa-copyright" aria-hidden="true"></i>Bản quyền @2020 Cổng thông tin điện tử - Branch of Thuy Loi
+          University</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script src="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css"></script>
+<script src="./adminitrator/index.js"></script>
+<script src="./lib.js"></script>
