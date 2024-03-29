@@ -1,0 +1,156 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">QUẢN LÝ BÀI VIẾT</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">Bài viết</li>
+                <div class="nav-item dropdown mega-dropdown"> <a class="nav-link  waves-effect waves-dark" href=""
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                            class="fa fa-plus-circle"></i>&nbsp;THÊM BÀI VIẾT
+                    </a>
+                    <div class="dropdown-menu animated bounceInDown">
+                        <ul class="mega-dropdown-menu row">
+
+                            <li class="col-lg-12 m-b-30 ">
+
+                                <!-- Accordian -->
+                                <div class="accordion" id="accordionExample">
+                                    <div class="row" id="insert_data">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <!-- <h4 class="card-title">Thêm bài viết mới</h4> -->
+
+
+                                                    <form class="m-t-40" novalidate>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <h5>Tên bài viết<span class="text-danger">*</span>
+                                                                    </h5>
+                                                                    <div class="controls">
+                                                                        <input id="txtname" type="text" name="text"
+                                                                            class="form-control" required
+                                                                            data-validation-required-message="This field is required">
+                                                                    </div>
+                                                                    <div class="form-control-feedback"><small>Add
+                                                                            <code>required</code> attribute to field for
+                                                                            required validation.</small></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <h5>Chủ đề <span class="text-danger">*</span></h5>
+                                                                    <div class="controls" id="topic">
+                                                                        <!-- <select name="select" id="select_categories" required class="form-select">
+                                                                            <option value="-1">Các chủ đề</option>
+                                                                        </select> -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <h5> Ảnh bài viết<span class="text-danger">*</span>
+                                                                    </h5>
+                                                                    <input type="file" id="txtFileImage"
+                                                                        class="form-control">
+                                                                    <small class="text-body-secondary">
+                                                                        <img style="width: 80px;" id="imgProduct"
+                                                                            class="avatar" src="./upload/default2.png"
+                                                                            alt="">
+                                                                        <input type="hidden" id="hid_avt"
+                                                                            value="default2.png">
+                                                                        <input type="button" id="btnUploadImage"
+                                                                            value="Done!!">
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <h5>Mô tả <span class="text-danger">*</span></h5>
+                                                                    <div class="controls">
+                                                                        <textarea id="textarea" name="textarea"
+                                                                            cols="45" rows="8" maxlength="65525"
+                                                                            class="form-control" required=""
+                                                                            placeholder="Nội dung bài viết"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <h5>Xác nhận các điều khoản của shop <span
+                                                                                class="text-danger">*</span></h5>
+                                                                        <div class="controls">
+                                                                            <div class="form-check">
+                                                                                <input type="checkbox" required
+                                                                                    value="single"
+                                                                                    class="form-check-input"
+                                                                                    id="customCheck1">
+                                                                                <label class="form-check-label"
+                                                                                    for="customCheck1">Tôi đồng ý các
+                                                                                    điều khoản của shop!!</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="text-xs-right">
+                                                                <button type="button" id="btnSubmit_addArticle1"
+                                                                    class="btn btn-info text-white">Nộp</button>
+                                                                <button type="reset"
+                                                                    class="btn btn-inverse">Hủy</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+        </div>
+        </ol>
+        <!-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15 text-white create_new"><i class="fa fa-plus-circle"></i> Create New</button> -->
+
+    </div>
+
+</div>
+</div>
+<div class="table-responsive">
+    <table class="table table-hover no-wrap">
+        <thead>
+            <tr>
+                <th class="text-center">THAO TÁC</th>
+                <th class="text-center">#</th>
+                <th class="text-center">Tên bài viết</th>
+                <th class="text-center">Hình ảnh</th>
+                <th class="text-center">NỘI DUNG</th>
+            </tr>
+        </thead>
+        <tbody id="listarticle">
+            <!-- <tr>
+                <td class="text-center">1</td>
+                <td class="txt-oflo">Elite admin</td>
+                <td><span class="badge bg-success rounded-pill">sale</span> </td>
+                <td class="txt-oflo"><span><img class="avatar" src="./upload/default2.png" alt=""></span></td>
+                <td><span class="text-success">$24</span></td>
+                <td><span class="text-success">$24</span></td>
+                <td><a href="javascript:void(0)" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td> 
+            </tr> -->
+        </tbody>
+    </table>
+</div>

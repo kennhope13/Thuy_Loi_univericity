@@ -1,0 +1,2 @@
+<td >`+ dt.article_name.match(regex1).join('<br>') + `</td>
+<td > <div>`+ dt.describe.match(regex).join('<br>') + `</div></td>  

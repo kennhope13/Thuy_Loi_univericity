@@ -17,12 +17,13 @@ module.exports = function (app, objJson, isEmailValid) {
     // app.get("/index1", (req, res) => {
     //     res.render("pages/index.ejs");
     // })
-    
+
     app.get("/index", authorization, (req, res) => {
         return res.render("pages/index1.ejs", {
-            data_user: { 
-                userId: req.userId, 
-                name: req.name 
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
             }
         });
     })
@@ -197,6 +198,28 @@ module.exports = function (app, objJson, isEmailValid) {
     app.get("/lienhe", (req, res) => {
         res.render("./pages/lienhe");
     });
+    // app.get("/detail-article", (req, res) => {
+    //     res.render("./admin/index", { page: "detail-article" });
+    // });
+    app.get("/detail-article/:id", async (req, res) => {
+        const articleId = req.params.id;
+        const foundId = await article.findById(articleId);
+        console.log("found", foundId.article_name);
+        res.render("./pages/detail-article", { data: foundId });
+    });
+    app.get("/detailArticle/:id", (req, res) => {
+        const articleId = req.params.id;
+        article.findById(articleId).then((data) => {
+            res.json({
+                result: 1,
+                userdata: data
+            })
+        }).catch((e) => {
+            res.json({
+                result: 0
+            })
+        })
+    });
     app.get("/delete/:id", (req, res) => {
         User.findByIdAndDelete(req.params.id).then((dt) => {
             res.json({
@@ -209,7 +232,8 @@ module.exports = function (app, objJson, isEmailValid) {
         });
     });
     app.get("/edit/:id", (req, res) => {
-        User.findById(req.params.id).then((dt) => {
+        console.log("aa", req.params.id);
+        User.findOne({ _id: req.params.id }).then((dt) => {
             res.json({
                 result: 1, data: dt
             })
@@ -219,6 +243,7 @@ module.exports = function (app, objJson, isEmailValid) {
             })
         });
     });
+
     app.post("/edit_user/:id", (req, res) => {
         console.log("bb", req.params.id);
         User.findByIdAndUpdate(req.params.id, req.body).then((dt) => {
@@ -254,7 +279,7 @@ module.exports = function (app, objJson, isEmailValid) {
     app.get("/insertArticle", (req, res) => {
         res.render("./admin/index", { page: "addArticle" });
     });
-    app.get("/listHome",async (req, res) => {
+    app.get("/listHome", async (req, res) => {
         const foundTopic = await topic.findOne({
             topic_slug: "Trang-Chu"
         });
@@ -271,9 +296,42 @@ module.exports = function (app, objJson, isEmailValid) {
                 result: 0
             })
         })
+    });
+    app.get("/listTinTuc", async (req, res) => {
+        const foundTopic = await topic.findOne({
+            topic_slug: "Tin-tuc"
+        });
 
-        
-        
+        await article.find({
+            topic_Article: foundTopic._id
+        }).then((data) => {
+            res.json({
+                result: 1,
+                userdata: data
+            })
+        }).catch((e) => {
+            res.json({
+                result: 0
+            })
+        })
+    });
+    app.get("/listDaoTao", async (req, res) => {
+        const foundTopic = await topic.findOne({
+            topic_slug: "Dao-tao"
+        });
+
+        await article.find({
+            topic_Article: foundTopic._id
+        }).then((data) => {
+            res.json({
+                result: 1,
+                userdata: data
+            })
+        }).catch((e) => {
+            res.json({
+                result: 0
+            })
+        })
     });
     app.get("/listTopic", (req, res) => {
         topic.find().then((data) => {
@@ -289,7 +347,7 @@ module.exports = function (app, objJson, isEmailValid) {
     });
     app.post("/addArticle", authorization, (req, res) => {
         upload(req, res, function (err) {
-            console.log("nguyen::",req.body.topic_Article);
+            console.log("nguyen::", req.body.topic_Article);
             var newArticle = new article({
                 article_name: req.body.article_name,
                 describe: req.body.describe,
@@ -299,10 +357,10 @@ module.exports = function (app, objJson, isEmailValid) {
                 topic_Article: converToObject(req.body.topic_Article)
             });
             newArticle.save().then(() => {
-                console.log("save succes");
+                res.json({ result: 1, message: "Lưu thành công" })
             })
                 .catch((e) => {
-                    console.log("save failed" + e);
+                    res.json({ result: 0, message: "Lưu thất bại" })
                 })
         });
     });
@@ -425,4 +483,43 @@ module.exports = function (app, objJson, isEmailValid) {
         }
 
     });
+    // tác giả
+    app.get("/TacGia", (req, res) => {
+        res.render("./TacGia/TacGia", { page: "BaiViet" })
+    })
+    app.get("/deleleBaiViet/:id", (req, res) => {
+        article.findByIdAndDelete(req.params.id).then((dt) => {
+            res.json({
+                result: 1, data: dt
+            })
+        }).catch((e) => {
+            res.json({
+                result: 0, err: e
+            })
+        });
+    })
+    app.get("/edit_baiviet_cua_tacgia/:id", (req, res) => {
+        console.log("aa", req.params.id);
+        article.findOne({ _id: req.params.id }).then((dt) => {
+            res.json({
+                result: 1, data: dt
+            })
+        }).catch((e) => {
+            res.json({
+                result: 0, err: e
+            })
+        });
+    });
+    app.post("/edit_BaiViet/:id", (req, res) => {
+        console.log("vv", req.params.id);
+        article.findByIdAndUpdate(req.params.id, req.body).then((dt) => {
+            res.json({
+                result: 1, data: dt
+            })
+        }).catch((e) => {
+            res.json({
+                result: 0, err: e
+            })
+        });
+    })
 }
