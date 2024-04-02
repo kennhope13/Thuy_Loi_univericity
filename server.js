@@ -20,7 +20,6 @@
         .then(()=>{
             console.log("Mongoose connect succesful!!");
             require("./routes/Homepage/main")(app, objJson, isEmailValid);
-            require("./routes/Homepage/article")(app, objJson, isEmailValid);
         })
         .catch((err)=>{
             console.log(err);

@@ -14,7 +14,8 @@ const authorSchema = new Schema({
     },
     images: {
         type: String,
-        require: true
+        require: true,
+        default: "upload/default2.png"
     },
     slug:{
         type:String,

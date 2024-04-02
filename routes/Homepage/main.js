@@ -195,8 +195,14 @@ module.exports = function (app, objJson, isEmailValid) {
     app.get("/users", (req, res) => {
         res.render("./admin/index", { page: "users" });
     });
-    app.get("/lienhe", (req, res) => {
-        res.render("./pages/lienhe");
+    app.get("/lienhe",authorization, (req, res) => {
+        res.render("./pages/lienhe", {
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+            }
+        });
     });
     // app.get("/detail-article", (req, res) => {
     //     res.render("./admin/index", { page: "detail-article" });
