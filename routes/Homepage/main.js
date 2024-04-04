@@ -196,13 +196,17 @@ module.exports = function (app, objJson, isEmailValid) {
         res.render("./admin/index", { page: "users" });
     });
     app.get("/lienhe",authorization, (req, res) => {
-        res.render("./pages/lienhe", {
-            data_user: {
-                userId: req.userId,
-                avatar: req.avt,
-                name: req.name
-            }
-        });
+        try{
+            res.render("./pages/lienhe", {
+                data_user: {
+                    userId: req.userId,
+                    avatar: req.avt,
+                    name: req.name
+                }
+            });
+        }catch(e){
+            console.error(e);
+        }
     });
     // app.get("/detail-article", (req, res) => {
     //     res.render("./admin/index", { page: "detail-article" });
