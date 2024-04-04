@@ -34,9 +34,9 @@ module.exports = function (app, objJson, isEmailValid) {
     app.get("/signup", (req, res) => {
         res.render("pages/signup.ejs");
     })
-    app.get("/bmcntt", (req, res) => {
-        res.render("masters.ejs", { page: "bmcntt" });
-    })
+    // app.get("/bmcntt", (req, res) => {
+    //     res.render("masters.ejs", { page: "bmcntt" });
+    // })
     app.post("/Register", (req, res) => {
         var email = req.body.Email;
         var password = req.body.Password;
@@ -189,11 +189,25 @@ module.exports = function (app, objJson, isEmailValid) {
             })
         })
     });
-    app.get("/admin", checkAdmin, (req, res, next) => {
-        res.render("./admin/index", { page: "home" });
+    app.get("/admin", checkAdmin, authorization,  (req, res, next) => {
+        res.render("./admin/index", { 
+            page: "home", 
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+             } 
+        });
     });
-    app.get("/users", (req, res) => {
-        res.render("./admin/index", { page: "users" });
+    app.get("/users",authorization, (req, res) => {
+        res.render("./admin/index", {
+             page: "users",
+             data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+             } 
+        });
     });
     app.get("/lienhe",authorization, (req, res) => {
         try{
@@ -281,13 +295,27 @@ module.exports = function (app, objJson, isEmailValid) {
             })
         })
     });
-    app.get("/authors", (req, res) => {
-        res.render("./admin/index", { page: "authors" });
+    app.get("/authors", authorization, (req, res) => {
+        res.render("./admin/index", { 
+            page: "authors",
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+            } 
+        });
     });
 
     //bai viet
-    app.get("/insertArticle", (req, res) => {
-        res.render("./admin/index", { page: "addArticle" });
+    app.get("/insertArticle", authorization, (req, res) => {
+        res.render("./admin/index", { 
+            page: "addArticle",
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+            } 
+        });
     });
     app.get("/listHome", async (req, res) => {
         const foundTopic = await topic.findOne({
@@ -375,8 +403,15 @@ module.exports = function (app, objJson, isEmailValid) {
         });
     });
 
-    app.get("/article", (req, res) => {
-        res.render("./admin/index", { page: "article" });
+    app.get("/article", authorization, (req, res) => {
+        res.render("./admin/index", { 
+            page: "article",
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+            } 
+        });
     });
     app.post("/listarticle", (req, res) => {
 
