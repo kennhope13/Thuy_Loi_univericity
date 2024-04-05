@@ -19,7 +19,8 @@ module.exports = function (app, objJson, isEmailValid) {
     // })
 
     app.get("/index", authorization, (req, res) => {
-        return res.render("pages/index1.ejs", {
+        return res.render("./masters.ejs", {
+            page:"index1",
             data_user: {
                 userId: req.userId,
                 avatar: req.avt,
@@ -27,6 +28,28 @@ module.exports = function (app, objJson, isEmailValid) {
             }
         });
     })
+
+    app.get("/detail-article/:id",authorization, async (req, res) => {
+        try{
+            const articleId = req.params.id;
+            const foundId = await article.findById(articleId);
+            console.log("found", foundId.article_name);
+            // res.render("./pages/detail-article", { data: foundId });
+            return res.render("./masters.ejs", {
+                page: "detail-article",
+                data_user: {
+                    userId: req.userId,
+                    avatar: req.avt,
+                    name: req.name
+                },
+                data: foundId
+           });
+        }catch(e){
+            console.error(e);
+        }
+        
+    });
+    
     app.get("/login", (req, res) => {
         res.render("pages/login.ejs")
         // .json({ user: { id: req.userId, Avatar: req.avt } });
@@ -225,25 +248,20 @@ module.exports = function (app, objJson, isEmailValid) {
     // app.get("/detail-article", (req, res) => {
     //     res.render("./admin/index", { page: "detail-article" });
     // });
-    app.get("/detail-article/:id", async (req, res) => {
-        const articleId = req.params.id;
-        const foundId = await article.findById(articleId);
-        console.log("found", foundId.article_name);
-        res.render("./pages/detail-article", { data: foundId });
-    });
-    app.get("/detailArticle/:id", (req, res) => {
-        const articleId = req.params.id;
-        article.findById(articleId).then((data) => {
-            res.json({
-                result: 1,
-                userdata: data
-            })
-        }).catch((e) => {
-            res.json({
-                result: 0
-            })
-        })
-    });
+    
+    // app.get("/detailArticle/:id", (req, res) => {
+    //     const articleId = req.params.id;
+    //     article.findById(articleId).then((data) => {
+    //         res.json({
+    //             result: 1,
+    //             userdata: data
+    //         })
+    //     }).catch((e) => {
+    //         res.json({
+    //             result: 0
+    //         })
+    //     })
+    // });
     app.get("/delete/:id", (req, res) => {
         User.findByIdAndDelete(req.params.id).then((dt) => {
             res.json({

@@ -606,7 +606,7 @@ $(document).ready(function () {
             <div class="col-lg-6">
               <div>
                 <a style="list-style: none; text-decoration: none; color:black" href="/detail-article/`+ dt._id + `" class= "details">
-                <div><b > `+ dt.article_name + `</b>
+                <div><b> `+ dt.article_name + `</b>
                 <p> `+ truncatedDescription + `....	</p>
                 </div>
                 </a>
@@ -669,7 +669,7 @@ $(document).ready(function () {
     if (data.result == 1) {
       data.userdata.forEach(function (dt, k) {
         // Cắt chuỗi dt.describe chỉ lấy 15 từ
-        var truncatedDescription = dt.describe.split(' ').slice(0, 30).join(' ');
+        var truncatedDescription = dt.describe.split(' ').slice(0, 10).join(' ');
         $("#article_BaiVietMoi").append(`
         <div class="col-lg-5">
             <img src="`+ dt.images + `" alt="computer-lab"
