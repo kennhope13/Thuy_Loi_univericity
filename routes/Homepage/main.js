@@ -68,6 +68,7 @@ module.exports = function (app, objJson, isEmailValid) {
         var mobile = req.body.mobile;
         var avatar = req.body.Avatar;
         var checkbox = req.body.Active;
+        var userType = req.body.userType;
         if (!email || !password) {
             // res.json({result:0,message:"Register wrong parameters"});
             console.log("error");
@@ -90,7 +91,7 @@ module.exports = function (app, objJson, isEmailValid) {
                                     mobile: mobile,
                                     Active: checkbox,
                                     RegisterDate: Date.now(),
-                                    userType: 0 // 0 user , 1 admin
+                                    userType: userType // 0 user 1 admin 3 author
                                 });
                                 NewUser.save().then((data) => {
                                     res.json({ result: 1, message: "User Register Succesfully!", data: data });
@@ -401,7 +402,7 @@ module.exports = function (app, objJson, isEmailValid) {
             })
         })
     });
-    app.post("/addArticle", authorization, (req, res) => {
+    app.post("/addArticle", authorization, async (req, res) => {
         upload(req, res, function (err) {
             console.log("nguyen::", req.body.topic_Article);
             var newArticle = new article({
@@ -412,11 +413,37 @@ module.exports = function (app, objJson, isEmailValid) {
                 article_author: req.name,
                 topic_Article: converToObject(req.body.topic_Article)
             });
-            newArticle.save().then(() => {
+            newArticle.save().then(async () => {
+                const updateSet = {
+                    $push: {
+                        articleID: converToObject(newArticle._id)
+                    }
+                }
+                await User.findByIdAndUpdate(req.userId, updateSet)
                 res.json({ result: 1, message: "Lưu thành công" })
             })
                 .catch((e) => {
-                    res.json({ result: 0, message: "Lưu thất bại" })
+                    res.json({ result: 0, message: "Lưu thất bại", error: e })
+                })
+        });
+    });
+
+    app.post("/addArticle2", authorization, async (req, res) => {
+        upload(req, res, function (err) {
+            console.log("nguyen::", req.body.topic_Article);
+            var newArticle = new article({
+                article_name: req.body.article_name,
+                describe: req.body.describe,
+                images: req.body.images,
+                slug: slugify(req.body.article_name),
+                article_author: req.name,
+                topic_Article: converToObject(req.body.topic_Article)
+            });
+            newArticle.save().then(async () => {
+                res.json({ result: 1, message: "Lưu thành công" })
+            })
+                .catch((e) => {
+                    res.json({ result: 0, message: "Lưu thất bại", error: e })
                 })
         });
     });
@@ -547,8 +574,25 @@ module.exports = function (app, objJson, isEmailValid) {
 
     });
     // tác giả
-    app.get("/TacGia", (req, res) => {
-        res.render("./TacGia/TacGia", { page: "BaiViet" })
+    app.get("/TacGia", authorization, (req, res) => {
+        res.render("./TacGia/TacGia", { 
+            page: "BaiViet",
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+            } 
+        })
+    })
+    app.get("/inserArtcileAuthor", authorization, (req, res) => {
+        res.render("./TacGia/TacGia", { 
+            page: "inserArtcileAuthor",
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+            } 
+        })
     })
     app.get("/deleleBaiViet/:id", (req, res) => {
         article.findByIdAndDelete(req.params.id).then((dt) => {

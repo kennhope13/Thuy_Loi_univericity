@@ -61,6 +61,8 @@ $(document).ready(function () {
       console.log("data", data);
       if (data.userType == 0) {
         window.location = `/index?email=${us}`;
+      } else if(data.userType == 2){
+        window.location = `/TacGia?email=${us}`;
       } else {
         window.location = `/admin?email=${us}`;
       }
@@ -77,7 +79,8 @@ $(document).ready(function () {
     var Name = $("#txtname").val();
     var address = $("#txtaddress").val();
     var mobile = $("#txtmobile").val();
-    var data = { Email: Email, Password: Password, Name: Name, address: address, mobile: mobile };
+    var userType = 0
+    var data = { Email: Email, Password: Password, Name: Name, address: address, mobile: mobile, userType: userType };
     // Gửi yêu cầu POST với dữ liệu FormData
     jQuery.ajax({
       url: './Register',
@@ -301,6 +304,7 @@ $(document).ready(function () {
     var email = $("#txt_email").val();
     var phone = $("#txt_phoneNum").val();
     var avatar = $("#hid_avt").val()
+    var userType = 0
     if (checkbox.checked) {
       checkbox.checked = false;
       console.log("false: ", checkbox);
@@ -308,7 +312,7 @@ $(document).ready(function () {
       checkbox.checked = true;
       console.log("true: ", checkbox);
     }
-    var data = { Name: name, Active: checkbox, Password: pw, Email: email, Avatar: avatar, mobile: phone }
+    var data = { Name: name, Active: checkbox, Password: pw, Email: email, Avatar: avatar, mobile: phone, userType: userType }
     jQuery.ajax({
       url: './Register',
       data: data,
@@ -319,6 +323,42 @@ $(document).ready(function () {
         if (data.result == 1) {
           alert("Thêm người dùng thành công.");
           window.location = "./users";
+        } else {
+          alert(data.message);
+        }
+      }
+    });
+    data.Password = "đã che!!!";
+    console.log(data);
+  })
+
+  //add author 
+  $("#btn_author").click(function () {
+    var name = $("#txt_name").val();
+    var checkbox = $("#myCheckbox").prop("checked");
+    var pw = $("#txt_password").val();
+    var email = $("#txt_email").val();
+    var phone = $("#txt_phoneNum").val();
+    var avatar = $("#hid_avt").val()
+    var userType = 2
+    if (checkbox.checked) {
+      checkbox.checked = false;
+      console.log("false: ", checkbox);
+    } else {
+      checkbox.checked = true;
+      console.log("true: ", checkbox);
+    }
+    var data = { Name: name, Active: checkbox, Password: pw, Email: email, Avatar: avatar, mobile: phone, userType: userType }
+    jQuery.ajax({
+      url: './Register',
+      data: data,
+      cache: false,
+      method: 'POST',
+      type: 'POST', // For jQuery < 1.9
+      success: function (data) {
+        if (data.result == 1) {
+          alert("Thêm tác giả thành công.");
+          window.location = "./authors";
         } else {
           alert(data.message);
         }
@@ -533,34 +573,34 @@ $(document).ready(function () {
     });
   });
   // tác giả
-  $("#btnSubmit_addArticle1").click(function () {
-    var data = new FormData();
+  // $("#btnSubmit_addArticle1").click(function () {
+  //   var data = new FormData();
 
-    data.append("article_name", $("#txtname").val());
-    // data.append("category_id", $("#select_categories").val());
-    data.append("images", $("#hid_avt").val());
-    data.append("describe", $("#textarea").val());
-    var selectedTopicId = $("#select_categories").find(':selected').attr('data-topic-id');
-    data.append("topic_Article", selectedTopicId);
-    // Gửi yêu cầu POST với dữ liệu FormData
-    jQuery.ajax({
-      url: './addArticle',
-      data: data,
-      cache: false,
-      contentType: false,
-      processData: false,
-      method: 'POST',
-      type: 'POST',
-      success: function (data) {
-        if (data.result == 1) {
-          alert("them bai viet thanh cong");
-          window.location = "";
-        } else {
-          alert("them bai viet that bai");
-        }
-      }
-    });
-  });
+  //   data.append("article_name", $("#txtname").val());
+  //   // data.append("category_id", $("#select_categories").val());
+  //   data.append("images", $("#hid_avt").val());
+  //   data.append("describe", $("#textarea").val());
+  //   var selectedTopicId = $("#select_categories").find(':selected').attr('data-topic-id');
+  //   data.append("topic_Article", selectedTopicId);
+  //   // Gửi yêu cầu POST với dữ liệu FormData
+  //   jQuery.ajax({
+  //     url: './addArticle',
+  //     data: data,
+  //     cache: false,
+  //     contentType: false,
+  //     processData: false,
+  //     method: 'POST',
+  //     type: 'POST',
+  //     success: function (data) {
+  //       if (data.result == 1) {
+  //         alert("them bai viet thanh cong");
+  //         window.location = "";
+  //       } else {
+  //         alert("them bai viet that bai");
+  //       }
+  //     }
+  //   });
+  // });
   // admin
   $("#btnSubmit_addArticle").click(function () {
     var data = new FormData();
@@ -583,9 +623,39 @@ $(document).ready(function () {
       success: function (data) {
         if (data.result == 1) {
           alert("them bai viet thanh cong");
-          window.location = "";
+          window.location = "/TacGia";
         } else {
-          alert("them bai viet that bai");
+          console.log("error: ", data.error);
+          alert("them bai viet that bai ");
+        }
+      }
+    });
+  });
+  $("#btnSubmit_addArticle2").click(function () {
+    var data = new FormData();
+
+    data.append("article_name", $("#txtname2").val());
+    // data.append("category_id", $("#select_categories").val());
+    data.append("images", $("#hid_avt2").val());
+    data.append("describe", $("#textarea2").val());
+    var selectedTopicId = $("#select_categories").find(':selected').attr('data-topic-id');
+    data.append("topic_Article", selectedTopicId);
+    // Gửi yêu cầu POST với dữ liệu FormData
+    jQuery.ajax({
+      url: './addArticle2',
+      data: data,
+      cache: false,
+      contentType: false,
+      processData: false,
+      method: 'POST',
+      type: 'POST',
+      success: function (data) {
+        if (data.result == 1) {
+          alert("them bai viet thanh cong");
+          window.location = "/TacGia";
+        } else {
+          console.log("error: ", data.error);
+          alert("them bai viet that bai ");
         }
       }
     });
