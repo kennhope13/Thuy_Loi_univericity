@@ -98,7 +98,8 @@ $(document).ready(function () {
       }
     });
   });
-  $("#login-lay").click(function () {
+  $("#login-lay").click(function (event) {
+    event.preventDefault();
     var token = getCookie("jwt");
     var data = { Token: token };
     console.log("data", data);
@@ -119,6 +120,7 @@ $(document).ready(function () {
     });
 
   });
+
   // show list user
 
   $.post("./listuser", function (data) {

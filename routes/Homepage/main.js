@@ -18,19 +18,48 @@ module.exports = function (app, objJson, isEmailValid) {
     //     res.render("pages/index.ejs");
     // })
 
-    app.get("/index", authorization, (req, res) => {
+    app.get("/index", authorization, async (req, res) => {
+        const Profile = await User.findById(req.userId).lean();
         return res.render("./masters.ejs", {
             page:"index1",
+            banner: "banner",
             data_user: {
                 userId: req.userId,
                 avatar: req.avt,
                 name: req.name
-            }
+            },
+            Profile
+        });
+    })
+
+    app.get("/tuyensinh", authorization, async (req, res) => {
+        const Profile = await User.findById(req.userId).lean();
+        return res.render("./masters.ejs", {
+            page:"tuyensinh",
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+            },
+            Profile
+        });
+    })
+    app.get("/ctdaotao", authorization, async (req, res) => {
+        const Profile = await User.findById(req.userId).lean();
+        return res.render("./masters.ejs", {
+            page:"ctdaotao",
+            data_user: {
+                userId: req.userId,
+                avatar: req.avt,
+                name: req.name
+            },
+            Profile
         });
     })
 
     app.get("/detail-article/:id",authorization, async (req, res) => {
         try{
+            const Profile = await User.findById(req.userId).lean();
             const articleId = req.params.id;
             const foundId = await article.findById(articleId);
             console.log("found", foundId.article_name);
@@ -42,7 +71,8 @@ module.exports = function (app, objJson, isEmailValid) {
                     avatar: req.avt,
                     name: req.name
                 },
-                data: foundId
+                data: foundId,
+                Profile
            });
         }catch(e){
             console.error(e);
@@ -233,14 +263,17 @@ module.exports = function (app, objJson, isEmailValid) {
              } 
         });
     });
-    app.get("/lienhe",authorization, (req, res) => {
+    app.get("/lienhe",authorization, async (req, res) => {
         try{
-            res.render("./pages/lienhe", {
+            const Profile = await User.findById(req.userId).lean();
+            res.render("./masters.ejs", {
+                page: "lienhe",
                 data_user: {
                     userId: req.userId,
                     avatar: req.avt,
                     name: req.name
-                }
+                },
+                Profile
             });
         }catch(e){
             console.error(e);

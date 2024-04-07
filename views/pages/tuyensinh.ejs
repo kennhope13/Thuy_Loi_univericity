@@ -1,0 +1,125 @@
+<div class="col-lg-8 my-2 mx-3" style=" font-family: 'Times New Roman', Times, serif;" >
+            
+    <h1 style="margin-bottom: 40px; color: #1e2f8f ;"><strong>Hướng dẫn tra cứu kết quả trúng tuyển Đại học hệ chính quy năm 2023</strong></h1>
+    <p><strong>Sau khi công bố điểm chuẩn ngày 22/8, 
+        đến thời điểm hiện tại thí sinh đã có thể tra cứu kết quả trúng 
+        tuyển chính thức trên cổng thông tin Phân hiệu Trường Đại học Thủy lợi.</strong></p>
+    <p><strong>Cụ thể, từ 11h ngày 23/8/2023, thí sinh có thể tra cứu TẠI ĐÂY để biết kết quả xét tuyển đại học chính quy năm 2023 của Phân hiệu Trường Đại học Thủy lợi</p>
+    <p><strong>Sau khi có kết quả trúng tuyển, thí sinh</strong> <strong style="color: red;">cần xác nhận nhập học trực tuyến trên Hệ thống của Bộ GD&ĐT trong thời gian 22/8 – trước 17h ngày 06/9.</strong><strong> Quá thời hạn này, thí sinh được xem như từ chối nhập học.</strong></p>
+    <p><strong>Sau khi xác nhận nhập học, thí sinh sẽ được Trường gửi giấy mời nhập học về nơi các em đã nộp hồ sơ đăng ký dự thi hoặc giấy báo nhập học online.</strong></p>
+    <p><strong>Các thông tin, thắc mắc cần giải đáp liên quan đến xét tuyển, thí sinh vui lòng liên hệ:</strong></p>
+    <p><strong>Phòng Truyền thông và Công tác sinh viên – Phân hiệu Trường Đại học Thủy lợi.</strong></p>
+    <p ><strong>>Website: https://tlus.edu.vn/</strong></p>
+    <p><strong>>Fanpage: https://www.facebook.com/</strong></p>
+    <p> <strong>>Youtube: https://www.youtube.com/@TLUS1976</strong></p>
+    <p><strong>Địa chỉ: Số 2 Trường Sa, phường 17, quận Bình Thạnh, Thành phố Hồ Chí Min</strong></p>
+    <p><strong>Liên hệ: 0916.769.708 HOẶC 028.3512.3298</strong></p>
+    <p><strong>Email: truyenthongtls@gmail.com</strong></p>
+    
+</div>
+<hr style="width: 80%; margin-left: 10%;">
+<style>
+    /* CSS để tạo giao diện cho ô bình luận */
+    #commentContainer {
+        width: 80%;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    #commentText {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc; /* Đường viền mặc định */
+    }
+
+    #commentText.error {
+        border-color: red; /* Thay đổi màu viền thành màu đỏ */
+    }
+
+    #commentContainer button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+    
+    }
+
+    #commentList {
+        margin-top: 20px;
+        padding-left: 0;
+        
+    }
+
+    #commentList li {
+        list-style: none;
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+    }
+</style>
+
+<h1 style="color: #1e2f8f; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Bình luận</h1>
+
+<div id="commentContainer">
+    <textarea id="commentText" placeholder="Viết bình luận của bạn..." required></textarea>
+    <button onclick="addComment()">Gửi</button>
+</div>
+
+<ul id="commentList">
+    <!-- Danh sách các bình luận sẽ được hiển thị ở đây -->
+</ul>
+
+<script>
+    // Mảng để lưu trữ các bình luận
+    let comments = [];
+
+    // Hàm để thêm bình luận mới
+    function addComment() {
+        const commentText = document.getElementById('commentText');
+        if (commentText.value.trim() === '') {
+            // Thêm lớp 'error' để thay đổi màu viền thành màu đỏ
+            commentText.classList.add('error');
+            alert('Vui lòng nhập nội dung bình luận.');
+            return;
+        }
+        
+        // Xóa lớp 'error' nếu người dùng đã nhập nội dung
+        commentText.classList.remove('error');
+
+        const comment = {
+            text: commentText.value,
+            timestamp: new Date().toLocaleString()  // Thêm thời gian vào bình luận
+        };
+
+        comments.push(comment);
+        displayComments();
+        commentText.value = '';  // Xóa nội dung ô nhập
+    }
+
+    // Hàm để hiển thị danh sách các bình luận
+    function displayComments() {
+        const commentList = document.getElementById('commentList');
+        commentList.innerHTML = '';  // Xóa nội dung hiện tại của danh sách bình luận
+
+        comments.forEach(comment => {
+            const li = document.createElement('li');
+            li.textContent = `${comment.text} - ${comment.timestamp}`;
+            commentList.appendChild(li);
+        });
+    }
+</script>
+<div class="container-fluid footer-botom">
+    <div class="container">
+      <div class="row">
+        <!-- <p><i class="fa fa-copyright" aria-hidden="true"></i>Bản quyền @2020 Cổng thông tin điện tử - Branch of Thuy Loi
+          University</p> -->
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script src="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css"></script>
+<script src="./adminitrator/index.js"></script>
+<script src="./lib.js"></script>

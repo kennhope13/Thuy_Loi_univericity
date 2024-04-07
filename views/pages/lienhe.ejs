@@ -1,176 +1,21 @@
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Index1</title>
-  <link rel="stylesheet" href="./adminitrator/layout.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://fontawesome.com/v4/icon/graduation-cap"></script>
-  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-  <div class="container-fluid headder">
-    <!-- header -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-7 logo">
-          <img src="./images/website-tlus-thuy-loi-campus-3.png" alt="">
-        </div>
-        <div class="col-lg-5">
-
-          <ul style="margin-left: 200px;">
-            <% if(!data_user.userId){ %>
-              <li style="list-style: none; margin-top: 20px;"><a
-                  style="text-decoration: none;color: #3949AB; font-size: 17px;" href="/login"><i class="fa fa-user"
-                    aria-hidden="true"></i>&nbsp;<b>Đăng nhập </b></a></li>
-              <% } else { %>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic show logo_user" href=""
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <img style="height: 50px; width: 50px;" src="/<%= data_user.avatar %>" class="logo_user">
-                    <span class="hidden-md-down">
-                      <%= data_user.name %> &nbsp;<i class="fa fa-angle-down"></i>
-                    </span>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> Thông tin cá nhân</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item mr-3" id="login-lay"><i class="fa fa-power-off"></i> Đăng xuất</a>
-                  </div>
-                </li>
-                <% } %>
-
-          </ul>
-        </div>
-      </div>
+ <!-- Phần giữa -->
+ <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.8404381897417!2d106.70479227769347!3d10.792373547429957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175299a2a7aeb89%3A0xfe75f3431d8fd812!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUaOG7p3kgTOG7o2kgUGjDom4gaGnhu4d1IE1p4buBbiBOYW0!5e0!3m2!1svi!2s!4v1679451490700!5m2!1svi!2s" width="100%" height="180" style="border: 0px; max-width: 100%; max-height: 500px; " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p>PHÂN HIỆU TRƯỜNG ĐẠI HỌC THỦY LỢI (Tp.HCM)
+          Địa chỉ : Số 2 Trường Sa, Phường 17, Q. Bình Thạnh, Tp.Hồ Chí Minh
+          
+          Điện thoại: (84).28.38400532 – Fax: (84).28.38400542
+          
+          Email: phanhieu@tlu.edu.vn</p>
+    </div>
+    <div class="col-lg-6">
+      <iframe src="https://maps.app.goo.gl/BtDnACk1NPtx6GvL9" width="100%" height="180" style="border: 0px; max-width: 100%; max-height: 500px; " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p>PHÂN HIỆU TRƯỜNG ĐẠI HỌC THỦY LỢI (Bình Dương)
+          68 Đ. Cách Mạng Tháng Tám, An Thạnh, Thuận An, Bình Dương, Việt Nam
+          
+          Điện thoại: (84).274.3748620 – Fax:(84).274.3833489</p>
     </div>
   </div>
-      <div class="slogan">
-        <hr style="width: 5%; position: relative; top: 60px; margin-left: 43%; border: 2px solid #000; border-radius: 2px; ">
-        <i class="fa fa-university" aria-hidden="true"></i>
-        <hr style="width: 5%; position: relative; bottom: 22.5px;  left: 370px; border: 2px solid #000; border-radius: 2px;">
-        <hr>
-      </div>
-
-  
-
-    
-      <div class="container-fluid ">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-    
-              <nav class="navbar navbar-expand-sm bg-light " >
-    
-                <div class="container banner-nav">
-                  <!-- Links -->
-                  <ul class="navbar-nav flex">
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    <li class="nav-item dropdown">
-                          <% if(!data_user.userId){ %>
-                            <a class="nav-link" id="home1" href="./index"  ><b>Giới
-                              Thiệu </b></a>
-                          <% } else{ %>
-                            <a class="nav-link" id="home1" href="./index?id=<%= data_user.userId %>"  ><b>Giới
-                              Thiệu </b></a>
-                          <% } %>
-                    </li>
-                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link " href="#" role="button"><b>Tuyển sinh</b></a>
-                    </li>
-                    <i class="fa fa-users" aria-hidden="true"></i>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link " href="#" role="button"><b>Chương trình đào tạo</b></a>
-                    </li>
-                    <i class="fa fa-id-card" aria-hidden="true"></i>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link " href="./lienhe"><b>Liên hệ</b></a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </div>
-        </div>
-        <hr style="width: 50%; margin-left: 25%;">
-    <!-- Phần giữa -->
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.8404381897417!2d106.70479227769347!3d10.792373547429957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175299a2a7aeb89%3A0xfe75f3431d8fd812!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUaOG7p3kgTOG7o2kgUGjDom4gaGnhu4d1IE1p4buBbiBOYW0!5e0!3m2!1svi!2s!4v1679451490700!5m2!1svi!2s" width="100%" height="180" style="border: 0px; max-width: 100%; max-height: 500px; margin-left: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <p>PHÂN HIỆU TRƯỜNG ĐẠI HỌC THỦY LỢI (Tp.HCM)
-                Địa chỉ : Số 2 Trường Sa, Phường 17, Q. Bình Thạnh, Tp.Hồ Chí Minh
-                
-                Điện thoại: (84).28.38400532 – Fax: (84).28.38400542
-                
-                Email: phanhieu@tlu.edu.vn</p>
-          </div>
-          <div class="col-lg-6">
-            <iframe src="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+Thu%E1%BB%B7+L%E1%BB%A3i+-+Ph%C3%A2n+hi%E1%BB%87u+B%C3%ACnh+D%C6%B0%C6%A1ng/@10.9501224,106.6812436,17z/data=!3m1!4b1!4m6!3m5!1s0x3174d7df4a7b72e1:0x8a50887d99537b78!8m2!3d10.9501224!4d106.6838185!16s%2Fg%2F11pcd78pkw?entry=ttu"width="100%" height="180" style="border: 0px; max-width: 100%; max-height: 500px; margin-left: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <p>PHÂN HIỆU TRƯỜNG ĐẠI HỌC THỦY LỢI (Bình Dương)
-                68 Đ. Cách Mạng Tháng Tám, An Thạnh, Thuận An, Bình Dương, Việt Nam
-                
-                Điện thoại: (84).274.3748620 – Fax:(84).274.3833489</p>
-          </div>
-        </div>
-      </div>
-
-  <hr>
-  <!-- footer -->
-  <div class="container-fluid footer">
-    <div class="container">
-      <div class="row ">
-
-        <div class="col-lg-7">
-          <h4><i class="fa fa-copyright" aria-hidden="true"></i>PHÂN HIỆU TRƯỜNG ĐẠI HỌC THỦY LỢI</h4>
-        </div>
-        <div class="col-lg-5 footer-top">
-          <a href="https://www.facebook.com/phanhieuthuyloi"><i style="color: #3F51B5;" class="fa fa-facebook-square"
-              aria-hidden="true"></i></a>
-          <a href="https://www.youtube.com/channel/UCmxnK89RTcty0KS2qJzEA7A"><i style="color: #3F51B5;"
-              class="fa fa-youtube-play" aria-hidden="true"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid footer-bot">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <b>Cơ sở tại TP.HCM</b>
-          <hr>
-          <p>Số 2 Trường Sa, P.17, Q. Bình Thạnh, Tp. Hồ Chí Minh </p>
-          <p>Điện thoại: (84).28.38400532</p>
-          <p>Fax: (84).28.38400532</p>
-          <p> Email: phanhieu@tlu.edu.vn</p>
-        </div>
-        
-          <div class="col-lg-3 mt-2 ml-5">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.8404381897417!2d106.70479227769347!3d10.792373547429957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175299a2a7aeb89%3A0xfe75f3431d8fd812!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUaOG7p3kgTOG7o2kgUGjDom4gaGnhu4d1IE1p4buBbiBOYW0!5e0!3m2!1svi!2s!4v1679451490700!5m2!1svi!2s" width="100%" height="180" style="border: 0px; max-width: 100%; max-height: 500px; margin-left: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid footer-botom">
-    <div class="container">
-      <div class="row">
-        <p><i class="fa fa-copyright" aria-hidden="true"></i>Bản quyền @2020 Cổng thông tin điện tử - Branch of Thuy Loi
-          University</p>
-      </div>
-    </div>
-  </div>
-  </div>
-</body>
-<script src="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css"></script>
-<script src="./adminitrator/index.js"></script>
-<script src="./lib.js"></script>
-</html>
+</div>
