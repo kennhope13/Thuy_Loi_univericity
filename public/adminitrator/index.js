@@ -61,7 +61,7 @@ $(document).ready(function () {
       console.log("data", data);
       if (data.userType == 0) {
         window.location = `/index?email=${us}`;
-      } else if(data.userType == 2){
+      } else if (data.userType == 2) {
         window.location = `/TacGia?email=${us}`;
       } else {
         window.location = `/admin?email=${us}`;
@@ -625,7 +625,7 @@ $(document).ready(function () {
       success: function (data) {
         if (data.result == 1) {
           alert("them bai viet thanh cong");
-          window.location = "/TacGia";
+          window.location = "/insertArticle";
         } else {
           console.log("error: ", data.error);
           alert("them bai viet that bai ");
@@ -791,7 +791,32 @@ $(document).ready(function () {
   //add data product database
 
 })
-// delete_user
+// chỉnh sửa thông tin người dùng
+$('.btn_edit_user').on('click', function (id) {
+  var id = $(this).attr('id');
+  var Name = $("#txt_editname1").val();
+  var Email = $("#txt_Editemail1").val();
+  var img = $("#hid_avt").val();
+  var phoneNumber = $("#txt_EditphoneNum1").val();
+  var data = { Name: Name, Email: Email, Avatar: img, mobile: phoneNumber };
+  console.log("poooooooo:", id);
+  $.ajax({
+    url: './edit_user/' + id,
+    data: data,
+    cache: false,
+    method: 'POST',
+    type: 'POST',
+    success: function (data) {
+      if (data.result == 1) {
+        alert("Chỉnh sửa thông tin thành công!!")
+        window.location = "./index";
+      } else {
+        //alert(data.message);
+        console.log("err", data);
+      }
+    }
+  })
+})
 
 let slideIndex = 1;
 //showSlides(slideIndex);

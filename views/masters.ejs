@@ -13,19 +13,25 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://fontawesome.com/v4/icon/graduation-cap"></script>
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <link href="dist/css/pages/user-card.css" rel="stylesheet">
+  <link href="dist/css/style.min.css" rel="stylesheet">
+  <!-- custom css -->
+  <link href="css/main.css" rel="stylesheet">
 </head>
 <style>
   .slideshow-container-fluid {
     position: relative;
     margin-top: 30px;
     overflow: hidden;
-}
+  }
 
-.slideshow-image {
-    height: 400px; /* Đặt chiều cao cố định cho hình ảnh */
-}
+  .slideshow-image {
+    height: 400px;
+    /* Đặt chiều cao cố định cho hình ảnh */
+  }
 
-.prev, .next {
+  .prev,
+  .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -38,101 +44,109 @@
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-}
+  }
 
-.prev {
+  .prev {
     left: 0;
-}
+  }
 
-.next {
+  .next {
     right: 0;
-}
-.top-nav .container {
+  }
+
+  .top-nav .container {
     display: flex;
     align-items: center;
-}
+  }
 
-.social-icons {
+  .social-icons {
     display: flex;
     align-items: center;
     margin-left: 780px;
   }
+
   .social-icons a {
-    margin-right: 10px; /* Khoảng cách giữa các biểu tượng */
+    margin-right: 10px;
+    /* Khoảng cách giữa các biểu tượng */
   }
+
   .search-bar {
-    flex-grow: 1; /* Kích thước thanh tìm kiếm linh hoạt */
+    flex-grow: 1;
+    /* Kích thước thanh tìm kiếm linh hoạt */
   }
 
-    /* Modal style */
-    .modal-content {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-    }
+  /* Modal style */
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+  }
 
-    /* Image style */
-    .profile-pic img {
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
-    }
+  /* Image style */
+  .profile-pic img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
 
-    /* Text style */
-    .profile-info {
-        padding-left: 20px;
-    }
+  /* Text style */
+  .profile-info {
+    padding-left: 20px;
+  }
 
-    /* Close button style */
-    .close {
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        cursor: pointer;
-    }
-    .dropdown-menu .dropdown-item:hover {
+  /* Close button style */
+  .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  .dropdown-menu .dropdown-item:hover {
     color: blue !important;
-}
-
+  }
 </style>
+
 <body>
   <div class="container-fluid headder">
     <div id="top-nav" class="top-nav ">
       <div class="container">
-        <span id="current-date" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"></span>
+        <span id="current-date"
+          style="border-radius: 10px;padding: 2px 2px; color: crimson; background-color: aliceblue; font-family: 'Lexend', sans-serif;"></span>
         <script>
-        function updateDateTime() {
-          var now = new Date();
-          var day = now.getDate();
-          var month = now.getMonth() + 1;
-          var year = now.getFullYear();
-          var hours = now.getHours();
-          var minutes = now.getMinutes();
-          var ampm = hours >= 12 ? 'Chiều' : 'Sáng';
-      
-          var formattedDate = day + '/' + month + '/' + year + ' ' + hours + ':' + (minutes < 10 ? '0' : '') + minutes + ' ' + ampm;
-      
-          document.getElementById('current-date').textContent =  formattedDate;
-      }
-      
-      updateDateTime();
-      
-      setInterval(updateDateTime, 1000);
-      </script>
-      <!-- Biểu tượng xã hội và đăng nhập -->  
-      <div class="social-icons">
-        
-    
-      </div>
-  
-      <a title="facebook" class="ttip-none" href="https://www.facebook.com/phanhieuthuyloi" target="_blank">
-        <i class="fa fa-facebook" style="font-size: 30px; margin-right: 10px;"></i> <!-- Icon Facebook -->
-    </a>
-    
-    <a class="ttip-none" title="Youtube" href="https://www.youtube.com/channel/UCmxnK89RTcty0KS2qJzEA7A" target="_blank">
-        <i class="fa fa-youtube" style="font-size: 30px; margin-right: 10px;"></i> <!-- Icon Youtube -->
-    </a>
-        <ul >
+          function updateDateTime() {
+            var now = new Date();
+            var day = now.getDate();
+            var month = now.getMonth() + 1;
+            var year = now.getFullYear();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+
+            var formattedDate = day + '/' + month + '/' + year + ' ' + hours + ':' + (minutes < 10 ? '0' : '') + minutes + ' ' + ampm;
+
+            document.getElementById('current-date').textContent = formattedDate;
+          }
+
+          updateDateTime();
+
+          setInterval(updateDateTime, 1000);
+        </script>
+        <!-- Biểu tượng xã hội và đăng nhập -->
+        <div class="social-icons">
+
+
+        </div>
+
+        <a title="facebook" class="ttip-none" href="https://www.facebook.com/phanhieuthuyloi" target="_blank">
+          <i class="fa fa-facebook" style="font-size: 30px; margin-right: 10px;"></i> <!-- Icon Facebook -->
+        </a>
+
+        <a class="ttip-none" title="Youtube" href="https://www.youtube.com/channel/UCmxnK89RTcty0KS2qJzEA7A"
+          target="_blank">
+          <i class="fa fa-youtube" style="font-size: 30px; margin-right: 10px;"></i> <!-- Icon Youtube -->
+        </a>
+        <ul>
           <% if(!data_user.userId){ %>
             <li style="list-style: none; margin-top: 10px; "><a
                 style="text-decoration: none;color: #3949AB; font-size: 17px;" href="/login"><i class="fa fa-user"
@@ -149,92 +163,172 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" id="openModal"><i class="ti-user"></i> Thông tin cá nhân</a>
                   <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item " id="login-lay"style="margin-left: -65px;"><i class="fa fa-power-off"></i> Logout</a>
+                  <a href="#" class="dropdown-item " id="login-lay" style="margin-left: -65px;"><i
+                      class="fa fa-power-off"></i> Đăng xuất</a>
                 </div>
               </li>
               <div id="myModal" class="modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
-                      <span style="margin-left: 70px;" class="close">&times;</span>
-                      <div class="row">
-                          <div class="col-lg-3 profile-pic">
-                              <img width="200px" style="margin-top: 45px;" src=" https://w7.pngwing.com/pngs/770/143/png-transparent-gitlab-github-samba-server-message-block-computer-software-github-child-face-hand.png" alt="Profile Picture">
-                          </div>
-                          <div class="col-lg-9 profile-info">
-                            <h4 class="m-b-20" style="margin-top: 20px;margin-left: 100px;">THÔNG TIN CÁ NHÂN</h4>
-                            <!-- Contact -->
-                            <form>
-                              <div class="form-group row">
-                                <label for="exampleInputName" class="col-sm-3 col-form-label"><h6>Họ tên:</h6></label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="exampleInputName" value="<%= data_user.name %>" readonly>
-                                </div>
-                         
+                    <span style="margin-left: 70px;" class="close">&times;</span>
+                    <div class="row">
+                      <div class="col-lg-3 profile-pic">
+                        <img width="200px" style="margin-top: 45px;" src="/<%= data_user.avatar %>"
+                          alt="Profile Picture">
+                      </div>
+                      <div class="col-lg-9 profile-info">
+                        <h4 class="m-b-20" style="margin-top: 20px;margin-left: 100px;">THÔNG TIN CÁ NHÂN</h4>
+                        <!-- Contact -->
+                        <form>
+                          <div class="form-group row">
+                            <label for="exampleInputName" class="col-sm-3 col-form-label">
+                              <h6>Họ tên:</h6>
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="exampleInputName"
+                                value="<%= data_user.name %>" readonly>
                             </div>
-                            
-                            <div class="form-group row">
+
+                          </div>
+
+                          <!-- <div class="form-group row">
                               <label for="exampleInputName" class="col-sm-3 col-form-label"><h6>Địa chỉ:</h6></label>
                               <div class="col-sm-9" >
                                   <input type="text" class="form-control" id="exampleInputName" value="<%= Profile.address %>" readonly >
                               </div>
+                          </div> -->
+                          <div class="form-group row">
+                            <label for="exampleInputName" class="col-sm-3 col-form-label">
+                              <h6>Email:</h6>
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="exampleInputName" value="<%= Profile.Email %>"
+                                readonly>
+                            </div>
                           </div>
                           <div class="form-group row">
-                            <label for="exampleInputName" class="col-sm-3 col-form-label"><h6>Email:</h6></label>
+                            <label for="exampleInputPhone" class="col-sm-3 col-form-label">
+                              <h6>Số điện thoại:</h6>
+                            </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="exampleInputName"  value="<%= Profile.Email %>" readonly >
+                              <input type="text" class="form-control" id="exampleInputPhone"
+                                value="<%= Profile.mobile %>" readonly>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="exampleInputPhone" class="col-sm-3 col-form-label"><h6>Số điện thoại:</h6></label>
-                          <div class="col-sm-9">
-                              <input type="text" class="form-control" id="exampleInputPhone" value="<%= Profile.mobile %>" readonly>
                           </div>
+                        </form>
+                        <div class="nav-item dropdown mega-dropdown "> <a class="nav-link  waves-effect waves-dark"
+                            id="<%=Profile._id%>" href="" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"><i class="ti-marker-alt "></i></i>&nbsp;Chỉnh sửa thông tin</a>
+                          <div class="dropdown-menu animated bounceInDown" id="listedit">
+                            <ul class="mega-dropdown-menu row">
+                              <li class="col-lg-5 col-xlg-2 m-b-30">
+                                <h4 class="m-b-20">BỘ MÔN CÔNG NGHỆ THÔNG TIN</h4>
+
+                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                  <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active">
+                                      <div class="container"> <img class="d-block img-fluid"
+                                          src="/images/Baner-web-01-1536x512.png" alt="First slide"></div>
+                                    </div>
+                                    <div class="carousel-item">
+                                      <div class="container"><img class="d-block img-fluid"
+                                          src="/images/facebook-1536x590.png" alt="Second slide"></div>
+                                    </div>
+                                    <div class="carousel-item">
+                                      <div class="container"><img class="d-block img-fluid" src="/images/le.png"
+                                          alt="Third slide"></div>
+                                    </div>
+                                  </div>
+                                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                    data-bs-slide="prev"> <span class="carousel-control-prev-icon"
+                                      aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                                  <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                    data-bs-slide="next"> <span class="carousel-control-next-icon"
+                                      aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                                </div>
+
+                              </li>
+                              <li class="col-lg-7 m-b-30 ">
+                                <h4 class="m-b-20">Chỉnh sửa thông tin</h4>
+
+                                <div class="accordion" id="accordionExample">
+                                  <div class="card m-b-0">
+                                    <div class="form-group">
+                                      <input style="width: 50%" type="text" class="form-control" id="txt_editname1"
+                                        value="<%= data_user.name%>" placeholder="Enter Name">
+                                    </div>
+                                    <div class="form-group">
+                                      <input style="width: 50%" type="email" class="form-control"
+                                        placeholder="Enter email" id="txt_Editemail1" value="<%= Profile.Email %>">
+                                    </div>
+                                    <div class="form-group">
+                                      <input style="width: 50%;" type="file" class="form-control" id="txtFileImage">
+                                      <img id="imgProduct" style="width: 60px;" class="avatar" src="./upload/" alt="">
+                                      <input style="width: 50%;" type="hidden" id="hid_avt"
+                                        value="./upload/default.jpg">
+                                      <input style="display: block;" type="button" id="btnUploadImage" value="Done!!">
+                                    </div>
+                                    <div class="form-group">
+                                      <input style="width: 50%;" type="text" class="form-control"
+                                        placeholder="Enter phone number" id="txt_EditphoneNum1"
+                                        value="<%=Profile.mobile%>">
+                                    </div>
+
+                                  </div>
+                                  <button type="button" class="btn btn-info text-white btn_edit_user"
+                                    id="<%=Profile._id%>">Update</button>
+                                </div>
+                              </li>
+
+
+                            </ul>
+                          </div>
+                        </div>
                       </div>
-                   </form>
+                    </div>
                   </div>
                 </div>
-                </div>
-                </div>
-                
-                                              
+
+
                 <!-- Add Bootstrap JS (required for modal functionality) -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+                <script
+                  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
                 <!-- Add jQuery (required for Bootstrap JS) -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script>
-                // Open modal when clicking on "Thông tin cá nhân"
-                $("#openModal").click(function() {
-                  $("#myModal").modal("show");
-                });
-                
-                // Close modal when clicking on close button
-                $(".close").click(function() {
-                  $("#myModal").modal("hide");
-                });
+                  // Open modal when clicking on "Thông tin cá nhân"
+                  $("#openModal").click(function () {
+                    $("#myModal").modal("show");
+                  });
+
+                  // Close modal when clicking on close button
+                  $(".close").click(function () {
+                    $("#myModal").modal("hide");
+                  });
                 </script>
-                
-                
-                
-                
-                </div>
+
+
+
+
+              </div>
               <% } %>
 
-        </ul>  
+        </ul>
+      </div>
+    </div><!-- .container /-->
+    <hr style="width: 80%; margin-left: 10%;">
+    <!-- header -->
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center logo">
+
+        <img src="./images/website-tlus-thuy-loi-campus-3.png" alt="">
+      </div>
+
+    </div>
   </div>
-</div><!-- .container /-->
-<hr style="width: 80%; margin-left: 10%;">
-<!-- header -->
-<div class="container">
-<div class="row d-flex justify-content-center align-items-center logo">
-
-<img src="./images/website-tlus-thuy-loi-campus-3.png" alt="">
-</div>
-
-</div>
-</div>
 
 
-<hr style="width: 80%; margin-left: 10%;">
+  <hr style="width: 80%; margin-left: 10%;">
 
   <!-- Banner -->
   <div class="slogan">
@@ -258,7 +352,7 @@
               <ul class="navbar-nav flex">
                 <i class="fa fa-home" aria-hidden="true"></i>
                 <li class="nav-item dropdown">
-                  <a class="nav-link" id="home1" href="/index" ><b>Giới
+                  <a class="nav-link" id="home1" href="/index"><b>Giới
                       Thiệu </b></a>
                 </li>
                 <i class="fa fa-graduation-cap" aria-hidden="true"></i>
@@ -284,35 +378,35 @@
   <!-- Slideshow container -->
   <!-- <div class="container-fluid slishowz">
       <div class="container"> -->
-        <% if ( page === 'index1') { %>
-          <div class="slideshow-container-fluid">
-            <!-- Full-width images with number and caption text -->
-            <div class="mySlides fade">
-              <img src="./images/Cong-thong-tin-viec-lam-1000x280-1.png" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-              <img src="./images/facebook-1536x590.png" style="width:100%">
-            </div>
-            <div class="mySlides fade">
-              <img src="./images/Baner-web-01-1536x512.png" style="width:100%">
-            </div>
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            <div style="text-align:center">
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-              <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
-          </div>
-        <% } %>
-        
-  <br>
+  <% if ( page==='index1' ) { %>
+    <div class="slideshow-container-fluid">
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <img src="./images/Cong-thong-tin-viec-lam-1000x280-1.png" style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src="./images/facebook-1536x590.png" style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src="./images/Baner-web-01-1536x512.png" style="width:100%">
+      </div>
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+    <% } %>
 
-  <!-- </div>
+      <br>
+
+      <!-- </div>
     </div> -->
-  <!-- <hr> -->
-  <!-- <div class="container">
+      <!-- <hr> -->
+      <!-- <div class="container">
       <div class="row">
         <div class="slogan-banner">
           <h3><b>Bộ môn Công Nghệ Thông Tin</b></h3>
@@ -323,94 +417,97 @@
         </div>
       </div>
     </div> -->
-  <div class="container">
-    <div class=" slogan-banner">
- 
-      <% if ( page === 'index1') { %>
-      <div>
-        <hr
-          style="width: 5%; position: relative; top: 19px; margin-left: 42%; border: 2px solid #000; border-radius: 2px; ">
-        <i class="fa fa-desktop" style="margin-top: 20px; margin-left: 90px;" aria-hidden="true"></i>
-        <hr
-          style="width: 5%; position: relative; bottom: 76px;  left: 680px; border: 2px solid #000; border-radius: 2px;">
-      </div>
-      <% } %>
-      <h3><b>Bộ môn Công Nghệ Thông Tin</b></h3>
-    </div>
-    <div class="row">
-      <% if ( page != 'lienhe') { %>
-      <div class="col-lg-3 my-2 mx-3">
-        <h5 id="chuyenmuc" class="rounded-top"><b>Chuyên mục </b></h5>
-        <ul id="mautab">
-          <Li>Bộ Môn</Li>
-          <li><a href="/bmcntt"><i style="margin-right: 3px;" class="fa fa-hand-o-right" aria-hidden="true"></i>Công
-              nghệ thông tin (IT)</a></li>
-          <li><a href=""><i style="margin-right: 3px;" class="fa fa-hand-o-right" aria-hidden="true"></i>Trí tuệ nhân
-              tạo và Khai phá dữ liệu (AI & OS)</a></li>
-        </ul>
+      <div class="container">
+        <div class=" slogan-banner">
 
-        <h5 id="chuyenmuc" class="rounded-top"><b>Bài viết mới </b></h5>
-        <div class="row" id="article_BaiVietMoi">
-          <!-- insert -->
+          <% if ( page==='index1' ) { %>
+            <div>
+              <hr
+                style="width: 5%; position: relative; top: 19px; margin-left: 42%; border: 2px solid #000; border-radius: 2px; ">
+              <i class="fa fa-desktop" style="margin-top: 20px; margin-left: 90px;" aria-hidden="true"></i>
+              <hr
+                style="width: 5%; position: relative; bottom: 76px;  left: 680px; border: 2px solid #000; border-radius: 2px;">
+            </div>
+            <% } %>
+              <h3><b>Bộ môn Công Nghệ Thông Tin</b></h3>
+        </div>
+        <div class="row">
+          <% if ( page !='lienhe' ) { %>
+            <div class="col-lg-3 my-2 mx-3">
+              <h5 id="chuyenmuc" class="rounded-top"><b>Chuyên mục </b></h5>
+              <ul id="mautab">
+                <Li>Bộ Môn</Li>
+                <li><a href="/bmcntt"><i style="margin-right: 3px;" class="fa fa-hand-o-right"
+                      aria-hidden="true"></i>Công
+                    nghệ thông tin (IT)</a></li>
+                <li><a href=""><i style="margin-right: 3px;" class="fa fa-hand-o-right" aria-hidden="true"></i>Trí tuệ
+                    nhân
+                    tạo và Khai phá dữ liệu (AI & OS)</a></li>
+              </ul>
+
+              <h5 id="chuyenmuc" class="rounded-top"><b>Bài viết mới </b></h5>
+              <div class="row" id="article_BaiVietMoi">
+                <!-- insert -->
+              </div>
+
+            </div>
+            <% } %>
+              <%- include("./pages/"+page+".ejs")%>
+
         </div>
 
-      </div>
-      <% } %>
-      <%- include("./pages/"+page+".ejs")%>
-
-  </div>
-
-  <hr>
-  <!-- footer -->
-  <div class="container-fluid footer">
-    <div class="container">
-      <div class="row ">
-        <div class="col-lg-7">
-          <h4><i class="fa fa-copyright" aria-hidden="true"></i>PHÂN HIỆU TRƯỜNG ĐẠI HỌC THỦY LỢI</h4>
+        <hr>
+        <!-- footer -->
+        <div class="container-fluid footer">
+          <div class="container">
+            <div class="row ">
+              <div class="col-lg-7">
+                <h4><i class="fa fa-copyright" aria-hidden="true"></i>PHÂN HIỆU TRƯỜNG ĐẠI HỌC THỦY LỢI</h4>
+              </div>
+              <div class="col-lg-5 footer-top">
+                <a href="https://www.facebook.com/phanhieuthuyloi"><i style="color: #3F51B5;"
+                    class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/channel/UCmxnK89RTcty0KS2qJzEA7A"><i style="color: #3F51B5;"
+                    class="fa fa-youtube-play" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-5 footer-top">
-          <a href="https://www.facebook.com/phanhieuthuyloi"><i style="color: #3F51B5;" class="fa fa-facebook-square"
-              aria-hidden="true"></i></a>
-          <a href="https://www.youtube.com/channel/UCmxnK89RTcty0KS2qJzEA7A"><i style="color: #3F51B5;"
-              class="fa fa-youtube-play" aria-hidden="true"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid footer-bot">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <b>Cơ sở tại TP.HCM</b>
-          <hr>
-          <p>Số 2 Trường Sa, P.17, Q. Bình Thạnh, Tp. Hồ Chí Minh </p>
-          <p>Điện thoại: (84).28.38400532</p>
-          <p>Fax: (84).28.38400532</p>
-          <p> Email: phanhieu@tlu.edu.vn</p>
-        </div>
+        <div class="container-fluid footer-bot">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <b>Cơ sở tại TP.HCM</b>
+                <hr>
+                <p>Số 2 Trường Sa, P.17, Q. Bình Thạnh, Tp. Hồ Chí Minh </p>
+                <p>Điện thoại: (84).28.38400532</p>
+                <p>Fax: (84).28.38400532</p>
+                <p> Email: phanhieu@tlu.edu.vn</p>
+              </div>
 
-        <div class="col-lg-3 mt-2 ml-5">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.8404381897417!2d106.70479227769347!3d10.792373547429957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175299a2a7aeb89%3A0xfe75f3431d8fd812!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUaOG7p3kgTOG7o2kgUGjDom4gaGnhu4d1IE1p4buBbiBOYW0!5e0!3m2!1svi!2s!4v1679451490700!5m2!1svi!2s"
-            width="100%" height="180" style="border: 0px; max-width: 100%; max-height: 500px; margin-left: 100%;"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+              <div class="col-lg-3 mt-2 ml-5">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.8404381897417!2d106.70479227769347!3d10.792373547429957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175299a2a7aeb89%3A0xfe75f3431d8fd812!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUaOG7p3kgTOG7o2kgUGjDom4gaGnhu4d1IE1p4buBbiBOYW0!5e0!3m2!1svi!2s!4v1679451490700!5m2!1svi!2s"
+                  width="100%" height="180" style="border: 0px; max-width: 100%; max-height: 500px; margin-left: 100%;"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
 
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid footer-botom">
+          <div class="container">
+            <div class="row">
+              <p><i class="fa fa-copyright" aria-hidden="true"></i>Bản quyền @2020 Cổng thông tin điện tử - Branch of
+                Thuy Loi
+                University</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="container-fluid footer-botom">
-    <div class="container">
-      <div class="row">
-        <p><i class="fa fa-copyright" aria-hidden="true"></i>Bản quyền @2020 Cổng thông tin điện tử - Branch of Thuy Loi
-          University</p>
-      </div>
-    </div>
-  </div>
-  </div>
-  <script src="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css"></script>
-  <script src="./adminitrator/index.js"></script>
-  <script src="./lib.js"></script>
+      <script src="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css"></script>
+      <script src="./adminitrator/index.js"></script>
+      <script src="./lib.js"></script>
 </body>
 
 </html>

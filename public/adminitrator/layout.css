@@ -43,9 +43,7 @@
   list-style: none;
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
+
 
 .flex i {
   position: relative;
